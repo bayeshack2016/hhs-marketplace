@@ -1,0 +1,7 @@
+.jumbotron{
+    background: url('../imgs/background.jpg') center center;
+	padding-top: 100px;
+	/* padding-bottom: 100px; */
+	width: 100%;
+	text-align: center; 
+}
