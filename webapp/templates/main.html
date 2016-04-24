@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="static/css/main.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css" type="text/css" />
-        
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>
   </head>
 
@@ -25,50 +25,84 @@
     <div class="jumbotron">
       <div class="container">
 		{% with active_page = "home" %}{% include 'navbar.html' %}{% endwith %}
-		  <div class="form-group">
-			<h4> Enter your zipcode and age: </h4>
+		<div class="form-group">
+		  <h4> Enter your zipcode and age: </h4>
 
-           <div class="col-md-offset-4 col-md-2">
-             <label for="zipcode" class="sr-only"></label>
-             <input id="zipcode" class="form-control input-group-lg reg_name" type="text"
-					name="zipcode" title="Enter zip code" placeholder="04005">
-           </div>       
-           <div class="col-md-1">
-             <label for="age" class="sr-only"></label>
+          <div class="col-md-offset-4 col-md-2">
+            <label for="zipcode"></label>
+            <input id="zipcode" class="form-control input-group-lg reg_name" type="text"
+				   name="zipcode" title="Enter zip code" placeholder="e.g. 96701">
+          </div>       
+          <div class="col-md-1">
+            <label for="age" ></label>
             <input id="age" class="form-control input-group-lg reg_name" type="text"
-				   name="age" title="Enter age" placeholder="35">
-           </div>
-		   <div class="col-md-1">
-			 <a class="btn btn-primary btn-lg" role="button" id="gobtn">Go! &raquo;</a>
-           </div>
+				   name="age" title="Enter age" placeholder="age">
+          </div>
+		  <div class="col-md-1" style="padding-top: 12px;">
+			<a class="btn btn-primary btn-lg" role="button" id="gobtn">Go! &raquo;</a>
+          </div>
 
-		  </div><!--/form-group-->
+		</div><!--/form-group-->
 	  </div>
-	</div>
+	</div> <!-- end jumbotron -->
 
 	<div id="output" class="container">
 	  <div class="row">
-		<div class="col-md-offset-2 col-md-6" id="plot">
-		</div>
-		<div class="col-md-4">
-		  <h1><span id="plan-num">33</span> plans</h1>
+		<div class="ui-widget">
+		  <form>
+			<div class="col-md-offset-3 col-md-6" style="padding-bottom: 40px;">
+			  <label for="provider">Want to make sure your doctor is included? </label>
+			  <input id="provider" class="form-control input-group-lg reg_name" type="text"
+					 placeholder="Start by typing your doctor's name">
+			</div>
+		  </form>
 		</div>
 	  </div>
-	</div>
+	  
+	  <div class="row">
+		<div class="col-md-offset-1 col-md-6" id="plot"></div>
+		<div class="col-md-4" id="summary">
+		  
+		  <div class="item">
+			<h1><span id="plan-num">--</span> plans</h1>
+			<div class="desc">available</div>
+		  </div>
+		  
+		  <div class="item">
+			<h1><span id="plan-national-comp">$30 cheaper</span></h1>
+			<div class="desc">than national average</div>
+		  </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-	<script src="static/js/jquery.min.js"></script>
-	<script src="static/js/main.js"></script>
+		  <div class="item" id="plan-provider-item">
+			<h1><span id="plan-state-comp">$30 pricier</span></h1>
+			<div class="desc">than state average,
+			  <br>with your doctor.
+			</div>
+		  </div>
+		  
+		</div>
+	  </div>
+	</div> <!-- end output container -->
 
-    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery.min.js"><\/script>')</script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
-		<!-- <link href="http://nvd3-community.github.io/nvd3/build/nv.d3.css" rel="stylesheet" type="text/css"> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script> -->
-    <!-- <script src="http://nvd3-community.github.io/nvd3/build/nv.d3.js"></script> -->
+	<div id="plan-container" class="container">
+	  
+	</div><!-- end plan-container -->
+	  
+		<!-- Bootstrap core JavaScript
+			 ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/main.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script>window.jQuery || document.write('<script src="static/js/vendor/jquery.min.js"><\/script>')</script>
+		  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+
+		  <!-- <link href="http://nvd3-community.github.io/nvd3/build/nv.d3.css" rel="stylesheet" type="text/css"> -->
+		  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script> -->
+		  <!-- <script src="http://nvd3-community.github.io/nvd3/build/nv.d3.js"></script> -->
 
   </body>
 </html>

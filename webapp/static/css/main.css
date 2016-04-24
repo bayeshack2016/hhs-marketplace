@@ -5,3 +5,31 @@
 	width: 100%;
 	text-align: center; 
 }
+
+.autocomplete .desc {
+  font-size: xx-small;
+  color: gray;
+}
+
+#summary h1{
+  text-align:center;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+#summary .desc {
+  font-size: small;
+  color: gray;
+    text-align:center;
+}
+
+#summary .item {
+	padding-top:10px;
+}
+
+#summary .good {
+	color: #3C763D;
+}
+
+#summary .bad {
+	color: #A94442;
+}
