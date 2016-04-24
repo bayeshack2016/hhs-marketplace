@@ -14,15 +14,15 @@ Once we have the data at our fingertips, we can start utilizing user input to na
 
 #### The Interface
 
-![alt tag](https://raw.githubusercontent.com/xinluh/bayeshack2016-hhs-marketplace/.png)
+![Alt text](/screenshots/zipAgeSearch.png?raw=true "Optional Title")
 
 Zipcode and age can narrow things down tremendously right off the bat. A quick bar plot gives you a sense of the price range for different plan levels.
 
-(Show screenshot here?)
+![Alt text](/screenshots/nation_comparison.png?raw=true "Optional Title")
 
 Then you can find out what plans have your Doctor in network. Just start typing their name and you'll get some autocomlete suggestions. Then the bar plot will update to show you how the plans that include your doctor compare to the rest of the state and the nation.
 
-(Maybe another screenshot?)
+![Alt text](/screenshots/sc3.png?raw=true "Optional Title")
 
 You'll also get a list of some plans 
 
