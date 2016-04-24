@@ -12,6 +12,14 @@ Converting csv to hdf5 also allowed to speedy reading and parsing
 
 Once we have the data at our fingertips, we can start utilizing user input to narrow the field.
 
+##### Understanding the Data
+Understanding how the data is organized, the idiosyncracies of the input, etc. was a major part of this project. En route to building an user interface to help consumers navigate the complicated health insurance market, we as team learned a heck of a lot about the health insurance system organization. 
+
+We wrote [a few words](/analysis/quicks.ipynb) about our findings while exploring the the datasets, and we also started a somewhat finicky but [working way](/analysis/download_providers.ipynb) to download the information about health care providers and their relationships to insurers which are only accessible via following a myriad of urls. 
+
+
+
+
 #### The Interface
 
 ![Alt text](/screenshots/zipAgeSearch.png?raw=true "Optional Title")
@@ -23,6 +31,8 @@ Zipcode and age can narrow things down tremendously right off the bat. A quick b
 Then you can find out what plans have your Doctor in network. Just start typing their name and you'll get some autocomlete suggestions. Then the bar plot will update to show you how the plans that include your doctor compare to the rest of the state and the nation.
 
 ![Alt text](/screenshots/sc3.png?raw=true "Optional Title")
+
+![Alt text](/screenshots/sc4.png?raw=true "Optional Title")
 
 You'll also get a list of some plans 
 
