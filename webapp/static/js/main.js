@@ -17,10 +17,11 @@ $(document).ready(function() {
 				   $('#plan-num').html(res['num_plans'])
 				   $('#plan-national-comp').html(res['national_comp'])
 				   $('#plan-national-comp').addClass((res['national_comp'].indexOf("pricier") > -1)?"bad":"good");
-				   console.log(res['num_plans'])
+				   // console.log(res['num_plans'])
 				   $('#output').show()
-				   console.log(res)
+				   console.log(res['plans'])
 				   
+				   $('#plan-container').html(res['plans'])
 			   });
 	}
 	$('#gobtn').click(function (){

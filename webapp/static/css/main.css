@@ -33,3 +33,19 @@
 #summary .bad {
 	color: #A94442;
 }
+
+#plan-container .Gold{
+	color:#F0AD4E;
+}
+#plan-container .Silver{
+	color:#DEDDDD;
+}
+#plan-container .Bronze{
+	color:#F0AD4E;
+}
+#plan-container .Platium{
+	color:#999;
+}
+#plan-container .Catastrophic{
+	color:#FFFFFF;
+}

@@ -1,0 +1,19 @@
+<table class="table plans">
+    <thead>
+      <tr>
+        <th>Plan Name</th>
+        <th>Plan Type</th>
+        <th>Montly Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for p in plans %}
+<tr>
+  <td><a href={{p['URLForSummaryofBenefitsCoverage']}}>{{p['PlanMarketingName']}}</a></td>
+  <td><span class={{p['MetalLevel']}}>★  </span>{{p['MetalLevel']}}</td>
+  <td>{{p['IndividualRate']}}</td>
+  
+</tr>
+{% endfor %}
+</tbody>
+</table>

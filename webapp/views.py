@@ -64,8 +64,10 @@ def summarize_plans(state, age, npi):
     elif age < '20':
       age = '20'
     # filter based on what plans are current (not expired) and age
-    filteredplans = pd.read_hdf('webapp/data/plan-rates.h5', state, where=['(Age==age) & (RateExpirationDate > todaysdate) & (RateEffectiveDate < todaysdate)'], columns = ['IndividualRate', 'MetalLevel', 'Age'])
-      
+    filteredplans = pd.read_hdf('webapp/data/plan-rates.h5', state, where=['(Age==age) & (RateExpirationDate > todaysdate) & (RateEffectiveDate < todaysdate)'],
+                                columns = ['IndividualRate', 'MetalLevel', 'Age','URLForSummaryofBenefitsCoverage','PlanMarketingName'])
+    stateave = filteredplans.IndividualRate.mean()
+    myave = stateave 
     # plot it
     #filteredplans.groupby('MetalLevel').IndividualRate.mean().plot(kind='bar')
     #statebardf = filteredplans.groupby('MetalLevel').IndividualRate.mean()
@@ -97,6 +99,7 @@ def summarize_plans(state, age, npi):
       provbardf = filteredplans.groupby('MetalLevel', as_index=False).mean()
       provbardf['average'] = ['provider rates']*len(provbardf.MetalLevel.values)
       statebardf['average'] = ['state average']*len(provbardf.MetalLevel.values)
+      myave = statebardf.IndividualRate.mean()
       #provbardf['average'] = [1, 1]
       #statebardf['average'] = [2, 2]
       #plotdf = pd.merge(statebardf, provbardf, on='MetalLevel')
@@ -110,10 +113,11 @@ def summarize_plans(state, age, npi):
     p.plot_height=400
     p.toolbar_location = None
     script,div =  components(p)
-
+    print filteredplans.to_dict(orient='records')
     return {'num_plans':len(filteredplans), 'script': script, 'plot_div': div,
-            'national_comp': format_price_comp(age2nationalAverage(age)),
-            'state_comp': format_price_comp(filteredplans.IndividualRate.mean())}
+            'national_comp': format_price_comp(float(age2nationalAverage(age))-myave),
+            'state_comp': format_price_comp(float(stateave)-myave),
+            'plans': render_template('plans.html', plans=filteredplans.sort_values(by='IndividualRate').to_dict(orient='records'))}
 
 def format_price_comp(price):
     price = int(float(price))
